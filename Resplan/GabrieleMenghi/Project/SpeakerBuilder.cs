@@ -5,8 +5,8 @@ namespace Resplan.GabrieleMenghi.Project
     class SpeakerBuilder : ISpeakerBuilder
     {
         private int _speakerCode;
-        private string _firstName;
-        private string _lastName;
+        private string _firstName = null;
+        private string _lastName = null;
 
         public SpeakerBuilder(int speakerCode)
         {

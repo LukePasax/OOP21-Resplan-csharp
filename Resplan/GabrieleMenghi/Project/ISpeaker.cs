@@ -1,7 +1,4 @@
-﻿using System;
-using System.Text;
-
-namespace Resplan.GabrieleMenghi.Project
+﻿namespace Resplan.GabrieleMenghi.Project
 {
     /// <summary>
     /// This interface represents a speaker who can participate in a project

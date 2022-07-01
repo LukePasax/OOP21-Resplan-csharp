@@ -35,7 +35,7 @@ namespace Resplan.GabrieleMenghi.Project
         }
 
         /// <inheritdoc/>
-        public ISpeaker build()
+        public ISpeaker Build()
         {
             if(this._firstName == null || this._lastName == null)
             {

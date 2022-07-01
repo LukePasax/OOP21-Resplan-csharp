@@ -23,6 +23,6 @@
         /// Create the ISpeaker
         /// </summary>
         /// <returns>The ISpeaker created</returns>
-        ISpeaker build();
+        ISpeaker Build();
     }
 }

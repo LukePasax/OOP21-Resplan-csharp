@@ -6,13 +6,13 @@ namespace Resplan.Antonini.Clock
     {
         private const double ClockStepUnit = 1;
 
-        private static readonly double ClockMaxTime = Clock.Utility.RoundToExistingClockTime(3.154E10);
+        private static readonly double ClockMaxTime = Utility.RoundToExistingClockTime(3.154E10);
 
-        public long Step { get; private set; } = 0;
+        public long Step { get; private set; }
 
         public double Time
         {
-            get => Clock.Utility.ClockStepToTime(Step);
+            get => Utility.ClockStepToTime(Step);
             set
             {
                 if (Time > Clock.ClockMaxTime)
@@ -20,13 +20,13 @@ namespace Resplan.Antonini.Clock
                     throw new ArgumentException("Time or corresponding steps are bigger than Clock.CLOCK_MAX_TIME");
                 }
 
-                Step = Clock.Utility.TimeToClockSteps(value);
+                Step = Utility.TimeToClockSteps(value);
             }
         }
 
         public void DoStep()
         {
-            if (Time >= Clock.ClockMaxTime)
+            if (Time >= ClockMaxTime)
             {
                 throw new Exception("Clock has reached the CLOCK_MAX_TIME value.");
             }

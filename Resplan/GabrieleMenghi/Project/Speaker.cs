@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Resplan.GabrieleMenghi.Project
+﻿namespace Resplan.GabrieleMenghi.Project
 {
     class Speaker : ISpeaker
     {

@@ -1,39 +1,83 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Resplan.Sirri
+namespace Resplan.Sirri.ProcessingUnit
 {
-    public class Gain
+    /// <summary>
+    /// 
+    /// </summary>
+    public class Gain : IAudioElement
     {
-        private readonly Stack<IEffect> _inputs;
-        private string _output;
+        private readonly ISet<IAudioElement> _inputs;
+        private readonly string _output = string.Empty;
         
+        /// <summary>
+        /// 
+        /// </summary>
+        public Dictionary<string, float> Parameters { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public string Output
         {
             get => _output;
             private set => _output.Append<>($", {value}");
         }
 
-        public Gain(IEnumerable<IEffect> inputs)
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Channels => _inputs.Count;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Name { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="inputs"></param>
+        public Gain(IEnumerable<IAudioElement> inputs)
         {
-            _inputs = new Stack<IEffect>(inputs);
+            _inputs = new HashSet<IAudioElement>(inputs);
+            Parameters = new Dictionary<string, float> { { "value", 1.0f } };
+            Name = "Gain";
         }
 
-        public Gain()
-        {
-            _inputs = new Stack<IEffect>();
-        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public Gain() : this(new HashSet<IEffect>()) { }
 
-        public void AddInput(IEffect e)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="e"></param>
+        public void AddInput(IAudioElement e)
         {
-            _inputs.Push(e);
+            _inputs.Add(e);
             Output = e.Name;
         }
 
-        public void RemoveInput(IEffect e)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="e"></param>
+        public void RemoveInput(IAudioElement e)
         {
-            _inputs.Pop();
+            _inputs.Remove(e);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string GetOutput()
+        {
+            return Output;
+        }
+
     }
-    
 }

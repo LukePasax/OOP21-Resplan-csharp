@@ -1,6 +1,6 @@
-﻿namespace Resplan.Sirri
+﻿namespace Resplan.Sirri.ProcessingUnit
 {
-    public interface IEffect
+    public interface IEffect : IAudioElement
     {
         string Name
         {

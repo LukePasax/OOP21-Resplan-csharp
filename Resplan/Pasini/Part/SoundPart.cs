@@ -11,8 +11,7 @@
         /// </summary>
         /// <param name="title"></param>
         /// <param name="description"></param>
-        public SoundAbstractPart(string title, string? description = null) : base(title, IPart.PartType.Sound, description)
-        {
-        }
+        public SoundAbstractPart(string title, string? description = null) 
+            : base(title, IPart.PartType.Sound, description) {}
     }
 }

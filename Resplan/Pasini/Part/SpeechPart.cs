@@ -8,7 +8,8 @@
     {
         public string? Text { get; set; }
 
-        public SpeechAbstractPart(string title, string? description = null, string? text = null) : base(title, IPart.PartType.Speech, description)
+        public SpeechAbstractPart(string title, string? description = null, string? text = null) 
+            : base(title, IPart.PartType.Speech, description)
         {
             Text = text;
         }

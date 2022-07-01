@@ -2,10 +2,18 @@ namespace Resplan.Sirri
 {
     public sealed class Channel : IChannel
     {
-        private IChannel.Type _type;
-        private boolean _enabled;
+        public int Volume { get; set; }
+        public IChannel.ChannelType Type { get; }
+        public bool Enabled { get; private set; }
 
-        public Type { get => _type; }
-        public Enabled { get => _enabled; }
+        public void Enable()
+        {
+            Enabled = true;
+        }
+
+        public void Disable()
+        {
+            Enabled = false;
+        }
     }
 }

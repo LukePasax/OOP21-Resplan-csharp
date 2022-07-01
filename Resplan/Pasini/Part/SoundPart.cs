@@ -7,12 +7,11 @@
     public class SoundPart : Part
     {
         /// <summary>
-        /// <inheritdoc cref=""/>
+        /// Creates a new instance of the <see cref="Part"/> class of type Sound.
         /// </summary>
         /// <param name="title"></param>
-        /// <param name="type"></param>
         /// <param name="description"></param>
-        public SoundPart(string title, IPart.PartType type, string description = "") : base(title, type, description)
+        public SoundPart(string title, string? description = null) : base(title, IPart.PartType.Sound, description)
         {
         }
     }

@@ -6,8 +6,6 @@
     /// </summary>
     public abstract class Part : IPart
     {
-        private string _description;
-
         /// <summary>
         /// <inheritdoc cref="IElement.Title"/>
         /// </summary>
@@ -21,11 +19,7 @@
         /// <summary>
         /// <inheritdoc cref="IElement.Description"/>
         /// </summary>
-        public string? Description
-        {
-            get => _description == "" ? null : _description;
-            set => _description = value;
-        }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Builds a new instance of the <see cref="Part"/> class.
@@ -33,10 +27,10 @@
         /// <param name="title"> The title of the part </param>
         /// <param name="type"> The type of the part </param>
         /// <param name="description"> The optional description of the part </param>
-        protected Part(string title, IPart.PartType type, string description = "")
+        protected Part(string title, IPart.PartType type, string? description = null)
         {
             Title = title;
-            _description = description;
+            Description = description;
             Type = type;
         }
     }

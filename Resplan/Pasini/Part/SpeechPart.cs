@@ -6,12 +6,12 @@
     /// </summary>
     public class SpeechPart : Part
     {
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
-        public SpeechPart(string title, IPart.PartType type, string description = "") : base(title, type, description)
+        public SpeechPart(string title, string? description = null, string? text = null) : base(title, IPart.PartType.Speech, description)
         {
+            Text = text;
         }
-
-
+        
     }
 }

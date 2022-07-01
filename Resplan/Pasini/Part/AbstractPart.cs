@@ -4,7 +4,7 @@
     /// <summary>
     /// An abstract implementation of the <see cref="IPart"/> interface.
     /// </summary>
-    public abstract class Part : IPart
+    public abstract class AbstractPart : IPart
     {
         /// <summary>
         /// <inheritdoc cref="IElement.Title"/>
@@ -22,12 +22,12 @@
         public string? Description { get; set; }
 
         /// <summary>
-        /// Builds a new instance of the <see cref="Part"/> class.
+        /// Builds a new instance of the <see cref="AbstractPart"/> class.
         /// </summary>
         /// <param name="title"> The title of the part </param>
         /// <param name="type"> The type of the part </param>
         /// <param name="description"> The optional description of the part </param>
-        protected Part(string title, IPart.PartType type, string? description = null)
+        protected AbstractPart(string title, IPart.PartType type, string? description = null)
         {
             Title = title;
             Description = description;

@@ -14,9 +14,13 @@ namespace Resplan.Pasini.Linker
         
         IRole GetRoleFromTitle(string title);
         
-        ISet<IRole> getRolesSet(IRole.RoleType type);
-        
+        ISet<IRole> getRolesSetOfType(IRole.RoleType type);
+
+        ISet<IRole> getRoles();
+
         bool ChannelExists(string channelTitle);
+        
+        void RemoveChannel(string channelTitle);
         
     }
 }

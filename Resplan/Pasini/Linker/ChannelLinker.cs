@@ -35,16 +35,25 @@ namespace Resplan.Pasini.Linker
            return _channels.First(x => x.Key.Title == title).Key;
         }
 
-        public ISet<IRole> getRolesSet(IRole.RoleType type)
+        public ISet<IRole> getRolesSetOfType(IRole.RoleType type)
         {
             return _channels.Where(x => x.Key.Type == type)
                 .Select(x => x.Key).ToHashSet();
+        }
+
+        public ISet<IRole> getRoles()
+        {
+            return _channels.Select(x => x.Key).ToHashSet();
         }
 
         public bool ChannelExists(string channelTitle)
         {
             return _channels.Any(x => x.Key.Title == channelTitle);
         }
-        
+
+        public void RemoveChannel(string channelTitle)
+        {
+            _channels.Remove(GetRoleFromTitle(channelTitle));
+        }
     }
 }

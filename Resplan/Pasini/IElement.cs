@@ -1,4 +1,4 @@
-﻿namespace Resplan.Pasini.Part
+﻿namespace Resplan.Pasini
 {
 
 	/// <summary>

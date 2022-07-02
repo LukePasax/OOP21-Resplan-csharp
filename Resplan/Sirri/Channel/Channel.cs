@@ -1,19 +1,16 @@
-namespace Resplan.Sirri
+namespace Resplan.Sirri.Channel
 {
     public sealed class Channel : IChannel
     {
         public int Volume { get; set; }
         public IChannel.ChannelType Type { get; }
+        
         public bool Enabled { get; private set; }
 
-        public void Enable()
-        {
-            Enabled = true;
-        }
+        public Channel(IChannel.ChannelType type) => Type = type;
 
-        public void Disable()
-        {
-            Enabled = false;
-        }
+        public void Enable() => Enabled = true;
+        
+        public void Disable() => Enabled = false;
     }
 }

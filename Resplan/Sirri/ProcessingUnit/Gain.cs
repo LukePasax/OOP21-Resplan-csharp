@@ -10,11 +10,22 @@ namespace Resplan.Sirri.ProcessingUnit
     {
         private readonly ISet<IAudioElement> _inputs;
         private readonly string _output = string.Empty;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="inputs"></param>
+        public Gain(IEnumerable<IAudioElement> inputs) => _inputs = new HashSet<IAudioElement>(inputs);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Gain() : this(new HashSet<IEffect>()) { }
         
         /// <summary>
         /// 
         /// </summary>
-        public Dictionary<string, float> Parameters { get; set; }
+        public Dictionary<string, float> Parameters { get; set; } = new Dictionary<string, float> { { "value", 1.0f } };
 
         /// <summary>
         /// 
@@ -33,23 +44,7 @@ namespace Resplan.Sirri.ProcessingUnit
         /// <summary>
         /// 
         /// </summary>
-        public string Name { get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="inputs"></param>
-        public Gain(IEnumerable<IAudioElement> inputs)
-        {
-            _inputs = new HashSet<IAudioElement>(inputs);
-            Parameters = new Dictionary<string, float> { { "value", 1.0f } };
-            Name = "Gain";
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Gain() : this(new HashSet<IEffect>()) { }
+        public string Name => "Gain";
 
         /// <summary>
         /// 
@@ -65,19 +60,7 @@ namespace Resplan.Sirri.ProcessingUnit
         /// 
         /// </summary>
         /// <param name="e"></param>
-        public void RemoveInput(IAudioElement e)
-        {
-            _inputs.Remove(e);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public string GetOutput()
-        {
-            return Output;
-        }
-
+        public void RemoveInput(IAudioElement e) => _inputs.Remove(e);
+        
     }
 }

@@ -8,19 +8,23 @@ namespace Resplan.Sirri.ProcessingUnit
     /// </summary>
     public class Gain : IAudioElement
     {
-        private readonly ISet<IAudioElement> _inputs;
-        private readonly string _output = string.Empty;
+        private readonly ISet<IAudioElement> _inputs = new HashSet<IAudioElement>();
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="inputs"></param>
-        public Gain(IEnumerable<IAudioElement> inputs) => _inputs = new HashSet<IAudioElement>(inputs);
+        public int Channels { get; }
 
         /// <summary>
         /// 
         /// </summary>
-        public Gain() : this(new HashSet<IEffect>()) { }
+        /// <param name="channels"></param>
+        public Gain(int channels) => Channels = channels;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Gain() : this(1) { }
         
         /// <summary>
         /// 
@@ -30,16 +34,7 @@ namespace Resplan.Sirri.ProcessingUnit
         /// <summary>
         /// 
         /// </summary>
-        public string Output
-        {
-            get => _output;
-            private set => _output.Append<>($", {value}");
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int Channels => _inputs.Count;
+        public string Output => _inputs.Aggregate("", (current, element) => current + element.Name);
 
         /// <summary>
         /// 
@@ -53,7 +48,6 @@ namespace Resplan.Sirri.ProcessingUnit
         public void AddInput(IAudioElement e)
         {
             _inputs.Add(e);
-            Output = e.Name;
         }
 
         /// <summary>
@@ -61,6 +55,16 @@ namespace Resplan.Sirri.ProcessingUnit
         /// </summary>
         /// <param name="e"></param>
         public void RemoveInput(IAudioElement e) => _inputs.Remove(e);
-        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void RemoveAllInputs()
+        {
+            foreach (var element in _inputs)
+            {
+                RemoveInput(element);
+            }
+        }
     }
 }

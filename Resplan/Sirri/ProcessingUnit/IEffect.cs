@@ -2,9 +2,11 @@
 {
     public interface IEffect : IAudioElement
     {
-        string Name
-        {
-            get;
-        }
+        string Name { get; }
+        
+        Gain GainIn { get; }
+        
+        Gain GainOut { get; }
+        
     }
 }

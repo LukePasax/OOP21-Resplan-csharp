@@ -39,5 +39,10 @@ namespace Resplan.Sirri.ProcessingUnit
         /// <param name="e"></param>
         void RemoveInput(IAudioElement e);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        void RemoveAllInputs();
+        
     }
 }

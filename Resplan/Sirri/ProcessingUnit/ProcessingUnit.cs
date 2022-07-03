@@ -15,11 +15,11 @@ namespace Resplan.Sirri.ProcessingUnit
         /// 
         /// </summary>
         public Gain GainOut { get; }
-        
+
         /// <summary>
         /// 
         /// </summary>
-        public IList<IEffect> Effects { get; }
+        public IList<Effect> Effects { get; } = new List<Effect>();
         
         /// <summary>
         /// 
@@ -29,7 +29,6 @@ namespace Resplan.Sirri.ProcessingUnit
         {
             GainIn = new Gain(channels);
             GainOut = new Gain(channels);
-            Effects = new List<IEffect>();
         }
 
         /// <summary>
@@ -39,7 +38,6 @@ namespace Resplan.Sirri.ProcessingUnit
         {
             GainIn = new Gain();
             GainOut = new Gain();
-            Effects = new List<IEffect>();
         }
 
         /// <summary>
@@ -59,7 +57,7 @@ namespace Resplan.Sirri.ProcessingUnit
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public IEffect GetEffectAtPosition(int index) => Effects.ElementAt(index);
+        public Effect GetEffectAtPosition(int index) => Effects.ElementAt(index);
         
         /// <summary>
         /// 
@@ -72,7 +70,7 @@ namespace Resplan.Sirri.ProcessingUnit
         /// <param name="index"></param>
         /// <param name="effect"></param>
         /// <exception cref="IndexOutOfRangeException"></exception>
-        public void AddEffectAtPosition(int index, IEffect effect)
+        public void AddEffectAtPosition(int index, Effect effect)
         {
             if (index < 0 || index > Size)
             {
@@ -98,7 +96,7 @@ namespace Resplan.Sirri.ProcessingUnit
             }
         }
 
-        private void ConnectEffects(IEffect from, IEffect to)
+        private void ConnectEffects(Effect from, Effect to)
         {
             to.GainIn.RemoveAllInputs();
             to.GainIn.AddInput(from.GainOut);

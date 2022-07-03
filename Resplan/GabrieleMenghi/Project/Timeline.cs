@@ -100,7 +100,7 @@ namespace Resplan.GabrieleMenghi.Project
         public ISet<ISection> GetAllSections()
         {
             ISet<ISection> sec = new HashSet<ISection>();
-            foreach (ISection s in sections.Values)
+            foreach (ISection s in this.sections.Values)
             {
                 sec.Add(s);
             }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NUnit.Framework;
 using Resplan.GabrieleMenghi.Project;
 
@@ -17,6 +18,10 @@ namespace TestProject
         [Test]
         public void TestAddition()
         {
+            this._timeline.RemoveSection(_s1);
+            this._timeline.RemoveSection(_s2);
+            this._timeline.RemoveSection(_s3);
+            this._timeline.RemoveSection(_s4);
             Assert.IsTrue(this._timeline.AddSection(0.0, _s1));
             Assert.IsFalse(this._timeline.AddSection(0.0, _s2));
             Assert.IsFalse(this._timeline.AddSection(1500.0, _s3));
@@ -26,22 +31,52 @@ namespace TestProject
         [Test]
         public void TestRemoval()
         {
-            Assert.AreEqual(_s4, _timeline.GetSection(2501));
+            this._timeline.RemoveSection(_s1);
+            this._timeline.RemoveSection(_s2);
+            this._timeline.RemoveSection(_s3);
+            this._timeline.RemoveSection(_s4);
+            this._timeline.AddSection(0.0, _s1);
+            this._timeline.AddSection(2501.0, _s4);
+            Assert.AreEqual(_s4, this._timeline.GetSection(2501));
             _timeline.RemoveSection(_s4);
-            Assert.AreEqual(null, _timeline.GetSection(2501));
+            Assert.AreEqual(null, this._timeline.GetSection(2501));
         }
 
         [Test]
         public void TestAllSections()
         {
-            ISet<ISection> allSections = new HashSet<ISection>()
+            this._timeline.RemoveSection(_s1);
+            this._timeline.RemoveSection(_s2);
+            this._timeline.RemoveSection(_s3);
+            this._timeline.RemoveSection(_s4);
+            this._timeline.AddSection(0.0, _s1);
+            this._timeline.AddSection(2501.0, _s4);
+            Console.WriteLine(this._timeline.GetAllSections().Count);
+            ISet<ISection> allSections = new HashSet<ISection>
             {
-                _s1,
-                _s4
+                _s4,
+                _s1
             };
 
-            Assert.AreEqual(allSections, _timeline.GetAllSections());
+            Assert.AreEqual(allSections, this._timeline.GetAllSections());
+        }
 
+        [Test]
+        public void TestOverallDurtation()
+        {
+            this._timeline.RemoveSection(_s1);
+            this._timeline.RemoveSection(_s2);
+            this._timeline.RemoveSection(_s3);
+            this._timeline.RemoveSection(_s4);
+            this._timeline.AddSection(0.0, _s1);
+            this._timeline.AddSection(2501.0, _s4);
+            this._timeline.AddSection(3802.0, _s2);
+            this._timeline.AddSection(5403.0, _s3);
+
+            Assert.AreEqual(6803.0, this._timeline.GetOverallDuration());
+
+            ITimeline _timeline2 = new Timeline();
+            Assert.AreEqual(0.0, _timeline2.GetOverallDuration());
         }
     }
 }

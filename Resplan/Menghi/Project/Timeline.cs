@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Resplan.GabrieleMenghi.Project
+namespace Resplan.Menghi.Project
 {
     /// <summary>
     /// It's the implementation of an ITimeline

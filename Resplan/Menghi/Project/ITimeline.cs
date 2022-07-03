@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Resplan.GabrieleMenghi.Project
+namespace Resplan.Menghi.Project
 {
     /// <summary>
     /// This interface represents the timeline at high level

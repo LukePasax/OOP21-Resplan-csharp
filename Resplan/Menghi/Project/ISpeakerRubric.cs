@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Resplan.GabrieleMenghi.Project
+namespace Resplan.Menghi.Project
 {
     /// <summary>
     /// This interface models a rubric that contains all the speakers saved before

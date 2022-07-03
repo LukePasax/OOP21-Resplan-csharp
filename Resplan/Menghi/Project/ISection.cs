@@ -1,6 +1,6 @@
-﻿using Resplan.Pasini.Part;
+﻿using Resplan.Pasini;
 
-namespace Resplan.GabrieleMenghi.Project
+namespace Resplan.Menghi.Project
 {
     /// <summary>
     /// It's an interface modelling a section, that is a named part of the timeline

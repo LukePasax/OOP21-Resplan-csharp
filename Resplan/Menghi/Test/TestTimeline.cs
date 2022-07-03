@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using Resplan.GabrieleMenghi.Project;
+using Resplan.Menghi.Project;
 
-namespace TestProject
+namespace Resplan.Menghi.Test
 {
     [TestFixture]
     class TestTimeline

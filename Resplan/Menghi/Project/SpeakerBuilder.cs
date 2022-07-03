@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Resplan.GabrieleMenghi.Project
+namespace Resplan.Menghi.Project
 {
     /// <summary>
     /// This is the implementation of the builder for an ISpeaker

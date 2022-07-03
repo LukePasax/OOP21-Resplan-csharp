@@ -22,7 +22,7 @@ namespace Resplan.Sirri.ProcessingUnit
         /// <summary>
         /// 
         /// </summary>
-        public string Output { get; } = string.Empty;
+        public string Output { get; protected set; } = string.Empty;
         
         /// <summary>
         /// 
@@ -67,7 +67,7 @@ namespace Resplan.Sirri.ProcessingUnit
         /// <summary>
         /// 
         /// </summary>
-        protected abstract void CalculateOutput();
-        
+        void CalculateOutput() => Output = Name + GainIn.Output;
+
     }
 }

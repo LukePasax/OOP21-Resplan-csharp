@@ -21,5 +21,13 @@ namespace TestProject
             Assert.IsFalse(this._timeline.AddSection(1500.0, _s3));
             Assert.IsTrue(this._timeline.AddSection(2501.0, _s4));
         }
+
+        [Test]
+        public void TestRemoval()
+        {
+            Assert.AreEqual(_s4, _timeline.GetSection(2501));
+            _timeline.RemoveSection(_s4);
+            Assert.AreEqual(null, _timeline.GetSection(2501));
+        }
     }
 }

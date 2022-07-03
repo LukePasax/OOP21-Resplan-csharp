@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 using Resplan.GabrieleMenghi.Project;
 
 namespace TestProject
@@ -28,6 +29,19 @@ namespace TestProject
             Assert.AreEqual(_s4, _timeline.GetSection(2501));
             _timeline.RemoveSection(_s4);
             Assert.AreEqual(null, _timeline.GetSection(2501));
+        }
+
+        [Test]
+        public void TestAllSections()
+        {
+            ISet<ISection> allSections = new HashSet<ISection>()
+            {
+                _s1,
+                _s4
+            };
+
+            Assert.AreEqual(allSections, _timeline.GetAllSections());
+
         }
     }
 }

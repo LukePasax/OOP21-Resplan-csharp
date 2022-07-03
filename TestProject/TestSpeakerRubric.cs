@@ -10,9 +10,9 @@ namespace TestProject
     class TestSpeakerRubric
     {
         private readonly ISpeaker _s1 = new Speaker(1, "Gabriele", "Menghi");
-        private readonly ISpeaker _s2 = new Speaker(1, "Alessandro", "Antonini");
-        private readonly ISpeaker _s3 = new Speaker(1, "Giacomo", "Sirri");
-        private readonly ISpeaker _s4 = new Speaker(1, "Luca", "Pasini");
+        private readonly ISpeaker _s2 = new Speaker(2, "Alessandro", "Antonini");
+        private readonly ISpeaker _s3 = new Speaker(3, "Giacomo", "Sirri");
+        private readonly ISpeaker _s4 = new Speaker(4, "Luca", "Pasini");
 
         private readonly ISpeakerRubric _rubric = new SpeakerRubric();
 
@@ -34,8 +34,24 @@ namespace TestProject
         public void TestSearch()
         {
             _rubric.AddSpeaker(_s1);
+            _rubric.RemoveSpeaker(_s3);
             Assert.AreEqual(_s1, _rubric.SearchSpeaker(1));
             Assert.AreEqual(null, _rubric.SearchSpeaker(3));
+        }
+
+        [Test]
+        public void TestFilteredSearch()
+        {
+            _rubric.AddSpeaker(_s1);
+            _rubric.AddSpeaker(_s2);
+            _rubric.AddSpeaker(_s3);
+            _rubric.AddSpeaker(_s4);
+            IList<ISpeaker> filtered = new List<ISpeaker>
+            {
+                _s1,
+                _s3
+            };
+            Assert.AreEqual(filtered, _rubric.GetFilteredSpeakers(x => x.FirstName.StartsWith("G")));
         }
     }
 }

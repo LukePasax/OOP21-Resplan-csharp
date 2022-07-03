@@ -35,7 +35,7 @@ namespace Resplan.GabrieleMenghi.Project
         {
             foreach (ISpeaker s in this.rubric)
             {
-                if (speaker.Equals(s) && speaker.FirstName.Equals(s.FirstName) && speaker.LastName.Equals(s.LastName))
+                if (speaker.Equals(s))
                 {
                     this.rubric.Remove(speaker);
                     return true;

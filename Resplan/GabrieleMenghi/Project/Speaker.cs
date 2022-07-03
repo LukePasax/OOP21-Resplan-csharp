@@ -1,4 +1,6 @@
-﻿namespace Resplan.GabrieleMenghi.Project
+﻿using System;
+
+namespace Resplan.GabrieleMenghi.Project
 {
     /// <summary>
     /// This is a simple implementation of an ISpeaker
@@ -29,5 +31,21 @@
 
         /// <inheritdoc/>
         public override string ToString() => $"S {SpeakerCode}, {FirstName}, {LastName}";
+
+        /// <inheritdoc/>
+        public override bool Equals(object? obj)
+        {
+            if (this == obj)
+                return true;
+            if (obj == null)
+                return false;
+            if (GetType() != obj.GetType())
+                return false;
+            Speaker other = (Speaker)obj;
+            return Object.Equals(SpeakerCode, other.SpeakerCode);
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode() => HashCode.Combine(SpeakerCode);
     }
 }

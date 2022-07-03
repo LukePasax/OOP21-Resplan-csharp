@@ -19,7 +19,7 @@ namespace Resplan.GabrieleMenghi.Project
         /// <param name="title">the title of the section</param>
         /// <param name="description">the description of the section</param>
         /// <param name="duration">the duration of the section</param>
-        public Section(string title, string description, int duration)
+        public Section(string title, string description, double duration)
         {
             this.Title = title;
             this.Description = description;
@@ -31,7 +31,7 @@ namespace Resplan.GabrieleMenghi.Project
         /// </summary>
         /// <param name="title">the title of the section</param>
         /// <param name="duration">the duration of the section</param>
-        public Section(string title, int duration)
+        public Section(string title, double duration)
         {
             this.Title = title;
             this.Description = null;

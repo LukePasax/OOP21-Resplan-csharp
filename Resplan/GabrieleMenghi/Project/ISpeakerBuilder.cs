@@ -3,7 +3,7 @@
     /// <summary>
     /// A builder for an ISpeaker
     /// </summary>
-    interface ISpeakerBuilder
+    public interface ISpeakerBuilder
     {
         /// <summary>
         /// Set the speaker's first name
@@ -23,6 +23,6 @@
         /// Create the ISpeaker
         /// </summary>
         /// <returns>The ISpeaker created</returns>
-        ISpeaker build();
+        ISpeaker Build();
     }
 }

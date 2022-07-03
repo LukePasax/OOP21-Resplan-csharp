@@ -6,7 +6,7 @@ namespace Resplan.GabrieleMenghi.Project
     /// <summary>
     /// This interface models a rubric that contains all the speakers saved before
     /// </summary>
-    interface ISpeakerRubric
+    public interface ISpeakerRubric
     {
         /// <summary>
         /// Returns all the speakers in the rubric
@@ -40,7 +40,7 @@ namespace Resplan.GabrieleMenghi.Project
         /// </summary>
         /// <param name="filter">the filter to apply to the search</param>
         /// <returns>the filtered speaker list</returns>
-        IList<ISpeaker> getFilteredSpeakers(Predicate<ISpeaker> filter);
+        IList<ISpeaker> GetFilteredSpeakers(Predicate<ISpeaker> filter);
 
     }
 }

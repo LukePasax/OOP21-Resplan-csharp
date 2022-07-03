@@ -29,5 +29,13 @@ namespace TestProject
             Assert.IsTrue(_rubric.RemoveSpeaker(_s1));
             Assert.IsFalse(_rubric.RemoveSpeaker(_s1));
         }
+
+        [Test]
+        public void TestSearch()
+        {
+            _rubric.AddSpeaker(_s1);
+            Assert.AreEqual(_s1, _rubric.SearchSpeaker(1));
+            Assert.AreEqual(null, _rubric.SearchSpeaker(3));
+        }
     }
 }

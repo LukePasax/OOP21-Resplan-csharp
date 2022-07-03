@@ -16,12 +16,6 @@ namespace Resplan.Sirri.Channel
             Audio,
 
             /// <summary>
-            /// Auxiliary channel that takes the duplicate of an audio channel's output as input,
-            /// to allow parallel signal processing.
-            /// </summary>
-            Return,
-
-            /// <summary>
             /// Channel that takes as input the sum of all the other channels' outputs.
             /// </summary>
             Master

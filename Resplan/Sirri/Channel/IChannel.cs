@@ -1,4 +1,6 @@
-namespace Resplan.Sirri
+using Resplan.Sirri.ProcessingUnit;
+
+namespace Resplan.Sirri.Channel
 {
     /// <summary>
     ///     This interface models a channel, which is a representation of sound coming from an input and going to an output.
@@ -49,5 +51,27 @@ namespace Resplan.Sirri
         /// Disables the channel.
         /// </summary>
         void Disable();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        IProcessingUnit? ProcessingUnit { get; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pu"></param>
+        void AddProcessingUnit(IProcessingUnit pu);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        void RemoveProcessingUnit();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        bool IsProcessingUnitPresent();
+        
     }
 }

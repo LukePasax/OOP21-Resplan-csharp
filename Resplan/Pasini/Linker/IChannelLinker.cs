@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Resplan.Sirri;
+using Resplan.Sirri.Channel;
 using Resplan.Sirri.Role;
 
 namespace Resplan.Pasini.Linker

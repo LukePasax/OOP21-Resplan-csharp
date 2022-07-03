@@ -5,9 +5,9 @@ namespace Resplan.GabrieleMenghi.Project
     /// <summary>
     /// This is the implementation of the builder for an ISpeaker
     /// </summary>
-    class SpeakerBuilder : ISpeakerBuilder
+    public class SpeakerBuilder : ISpeakerBuilder
     {
-        private int _speakerCode;
+        private readonly int _speakerCode;
         private string? _firstName = null;
         private string? _lastName = null;
 

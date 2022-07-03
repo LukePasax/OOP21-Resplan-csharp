@@ -6,7 +6,7 @@ namespace Resplan.GabrieleMenghi.Project
     /// <summary>
     /// This is the implementation of an ISpeakerRubric
     /// </summary>
-    class SpeakerRubric : ISpeakerRubric
+    public class SpeakerRubric : ISpeakerRubric
     {
         private readonly IList<ISpeaker> rubric = new List<ISpeaker>();
 
@@ -58,7 +58,7 @@ namespace Resplan.GabrieleMenghi.Project
         }
 
         /// <inheritdoc/>
-        public IList<ISpeaker> getFilteredSpeakers(Predicate<ISpeaker> filter)
+        public IList<ISpeaker> GetFilteredSpeakers(Predicate<ISpeaker> filter)
         {
             IList<ISpeaker> filteredRubric = new List<ISpeaker>();
             foreach (ISpeaker s in this.rubric)

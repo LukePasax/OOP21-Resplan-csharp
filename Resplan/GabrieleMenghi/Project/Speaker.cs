@@ -3,7 +3,7 @@
     /// <summary>
     /// This is a simple implementation of an ISpeaker
     /// </summary>
-    class Speaker : ISpeaker
+    public class Speaker : ISpeaker
     {
         /// <inheritdoc/>
         public int SpeakerCode { get; private set; }

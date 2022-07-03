@@ -5,9 +5,9 @@ namespace Resplan.GabrieleMenghi.Project
     /// <summary>
     /// It's the implementation of an ITimeline
     /// </summary>
-    class Timeline : ITimeline
+    public class Timeline : ITimeline
     {
-        private IDictionary<double, ISection> sections = new Dictionary<double, ISection>();
+        private readonly IDictionary<double, ISection> sections = new Dictionary<double, ISection>();
 
         private bool IsAddValid(double initialTime, ISection section)
         {

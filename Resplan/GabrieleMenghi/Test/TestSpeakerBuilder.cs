@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using NUnit.Framework;
 using Resplan.GabrieleMenghi.Project;
 
@@ -9,7 +7,7 @@ namespace Resplan.GabrieleMenghi.Test
     [TestFixture]
     class TestSpeakerBuilder
     {
-        private ISpeakerBuilder builder = new SpeakerBuilder(1);
+        private readonly ISpeakerBuilder builder = new SpeakerBuilder(1);
 
         [Test]
         public void TestRightCreation()
@@ -35,6 +33,12 @@ namespace Resplan.GabrieleMenghi.Test
                 Assert.Fail();
             }
             catch (MissingFieldException) {}
+        }
+
+        [Test]
+        public void Testbase()
+        {
+            Assert.Pass();
         }
     }
 }

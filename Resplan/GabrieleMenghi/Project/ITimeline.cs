@@ -5,7 +5,7 @@ namespace Resplan.GabrieleMenghi.Project
     /// <summary>
     /// This interface represents the timeline at high level
     /// </summary>
-    interface ITimeline
+    public interface ITimeline
     {
         /// <summary>
         /// Allow to add a section to the timeline. Returns true if the addition is successful

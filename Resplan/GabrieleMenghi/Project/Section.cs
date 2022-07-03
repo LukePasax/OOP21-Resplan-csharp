@@ -5,7 +5,7 @@ namespace Resplan.GabrieleMenghi.Project
     /// <summary>
     /// It's the implementation of an ISection
     /// </summary>
-    class Section : ISection
+    public class Section : ISection
     {
         public string Title { get; private set; }
 

@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using Resplan.GabrieleMenghi.Project;
 
-namespace Resplan.GabrieleMenghi.Test
+namespace TestProject
 {
     [TestFixture]
     class TestSpeaker

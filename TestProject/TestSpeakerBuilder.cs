@@ -2,12 +2,13 @@
 using NUnit.Framework;
 using Resplan.GabrieleMenghi.Project;
 
-namespace Resplan.GabrieleMenghi.Test
+namespace TestProject
 {
     [TestFixture]
     class TestSpeakerBuilder
     {
         private readonly ISpeakerBuilder builder = new SpeakerBuilder(1);
+        private readonly ISpeakerBuilder builder2 = new SpeakerBuilder(1);
 
         [Test]
         public void TestRightCreation()
@@ -17,7 +18,8 @@ namespace Resplan.GabrieleMenghi.Test
                 builder.FirstName("Gabriele")
                         .LastName("Menghi")
                         .Build();
-            } catch (MissingFieldException)
+            }
+            catch (MissingFieldException)
             {
                 Assert.Pass();
             }
@@ -28,11 +30,12 @@ namespace Resplan.GabrieleMenghi.Test
         {
             try
             {
-                builder.FirstName("Gabriele")
+                builder2.FirstName("Gabriele")
                         .Build();
+
                 Assert.Fail();
             }
-            catch (MissingFieldException) {}
+            catch (MissingFieldException) { }
         }
     }
 }

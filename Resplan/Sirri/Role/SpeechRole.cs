@@ -6,8 +6,8 @@ namespace Resplan.Sirri.Role
     {
         public ISpeaker? Speaker { get; set; }
 
-        public SpeechRole(string title, IRole.RoleType type, string? description = null, ISpeaker? speaker = null) 
-            : base(title, type, description)
+        public SpeechRole(string title, string? description = null, ISpeaker? speaker = null) 
+            : base(title, IRole.RoleType.Speech, description)
         {
             Speaker = speaker;
         }

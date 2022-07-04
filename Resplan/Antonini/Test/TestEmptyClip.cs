@@ -12,7 +12,7 @@ namespace Resplan.Antonini.Test
         {
             IClip<NoContent> emptyClip = new EmptyClip("title");
             Assert.True(emptyClip.IsEmpty());
-            Assert.Equals(emptyClip.Duration, IClip<NoContent>.DEFAULT_DURATION);
+            Assert.AreEqual(emptyClip.Duration, IClip<NoContent>.DEFAULT_DURATION);
         }
 
         [Test]
@@ -20,7 +20,7 @@ namespace Resplan.Antonini.Test
         {
             IClip<NoContent> clip = new EmptyClip("title");
             clip.Duration = 1000;
-            Assert.Equals(clip.Duration, 1000);
+            Assert.AreEqual(clip.Duration, 1000);
         }
 
         [Test]

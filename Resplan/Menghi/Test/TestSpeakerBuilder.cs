@@ -1,6 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
-using Resplan.Menghi.Project;
+using Resplan.Menghi.Speaker;
 
 namespace Resplan.Menghi.Test
 {

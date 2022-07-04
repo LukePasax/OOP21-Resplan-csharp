@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
-using Resplan.Menghi.Project;
+using Resplan.Menghi.Rubric;
+using Resplan.Menghi.Speaker;
 
 namespace Resplan.Menghi.Test
 {
     [TestFixture]
     class TestSpeakerRubric
     {
-        private readonly ISpeaker _s1 = new Speaker(1, "Gabriele", "Menghi");
-        private readonly ISpeaker _s2 = new Speaker(2, "Alessandro", "Antonini");
-        private readonly ISpeaker _s3 = new Speaker(3, "Giacomo", "Sirri");
-        private readonly ISpeaker _s4 = new Speaker(4, "Luca", "Pasini");
+        private readonly ISpeaker _s1 = new Speaker.Speaker(1, "Gabriele", "Menghi");
+        private readonly ISpeaker _s2 = new Speaker.Speaker(2, "Alessandro", "Antonini");
+        private readonly ISpeaker _s3 = new Speaker.Speaker(3, "Giacomo", "Sirri");
+        private readonly ISpeaker _s4 = new Speaker.Speaker(4, "Luca", "Pasini");
 
         private readonly ISpeakerRubric _rubric = new SpeakerRubric();
 

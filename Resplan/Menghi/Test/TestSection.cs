@@ -1,12 +1,12 @@
 ﻿using NUnit.Framework;
-using Resplan.Menghi.Project;
+using Resplan.Menghi.Section;
 
 namespace Resplan.Menghi.Test
 {
     [TestFixture]
     class TestSection
     {
-        private readonly ISection _section = new Section("First", "This is the first section", 20.0);
+        private readonly ISection _section = new Section.Section("First", "This is the first section", 20.0);
 
         [Test]
         public void TestTitle()

@@ -28,6 +28,10 @@ namespace Resplan.Sirri.ProcessingUnit
         {
             GainIn = new Gain();
             GainOut = new Gain();
+            if (effects.Count == 0)
+            {
+                throw new ArgumentException("Cannot create an empty processing unit.");
+            }
             for (var i = 0; i < effects.Count; i++)
             {
                 AddEffectAtPosition(i, effects[i]);
@@ -104,11 +108,11 @@ namespace Resplan.Sirri.ProcessingUnit
         /// <exception cref="InvalidOperationException"></exception>
         public void RemoveEffectAtPosition(int index)
         {
-            if (index < 0 && index > Size)
+            if (index < 0 || index > Size)
             {
                 throw new IndexOutOfRangeException("Cannot remove at this position.");
             }
-            if (Size < 1)
+            if (Size <= 1)
             {
                 throw new InvalidOperationException("Cannot perform this operation when " +
                                                     "there is only one effect stored.");

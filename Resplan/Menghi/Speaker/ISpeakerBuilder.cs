@@ -1,4 +1,4 @@
-﻿namespace Resplan.Menghi.Project
+﻿namespace Resplan.Menghi.Speaker
 {
     /// <summary>
     /// A builder for an ISpeaker

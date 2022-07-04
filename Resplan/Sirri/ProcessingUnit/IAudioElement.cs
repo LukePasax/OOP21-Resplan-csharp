@@ -16,8 +16,7 @@ namespace Resplan.Sirri.ProcessingUnit
         /// 
         /// </summary>
         int Channels { get; }
-
-
+        
         /// <summary>
         /// 
         /// </summary>

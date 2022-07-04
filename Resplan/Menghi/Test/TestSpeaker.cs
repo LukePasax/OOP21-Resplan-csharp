@@ -1,12 +1,12 @@
 using NUnit.Framework;
-using Resplan.Menghi.Project;
+using Resplan.Menghi.Speaker;
 
 namespace Resplan.Menghi.Test
 {
     [TestFixture]
     class TestSpeaker
     {
-        private readonly ISpeaker _speaker = new Speaker(1, "Gabriele", "Menghi");
+        private readonly ISpeaker _speaker = new Speaker.Speaker(1, "Gabriele", "Menghi");
 
         [Test]
         public void TestCode()

@@ -50,7 +50,7 @@ namespace Resplan.Antonini.Test
             map.Put(1, 1);
             map.Put(2, 1);
             map.Remove(1, 1);
-            Assert.Null(map.Get(1));
+            Assert.False(map.ContainsKey(1));
         }
     }
 }

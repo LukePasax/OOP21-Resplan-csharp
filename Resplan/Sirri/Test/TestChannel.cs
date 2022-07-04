@@ -29,6 +29,5 @@ namespace Resplan.Sirri.Test
             Channel.Enable();
             Assert.IsTrue(Channel.Enabled);
         }
-
     }
 }

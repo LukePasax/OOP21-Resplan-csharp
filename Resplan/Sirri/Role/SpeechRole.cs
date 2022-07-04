@@ -1,4 +1,4 @@
-﻿using Resplan.GabrieleMenghi.Project;
+﻿using Resplan.Menghi.Project;
 
 namespace Resplan.Sirri.Role
 {

@@ -22,6 +22,16 @@ namespace Resplan.Sirri.Channel
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public Gain GainIn { get; }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public Gain GainOut { get; }
+        
+        /// <summary>
         /// Property for the volume of the channel.
         /// </summary>
         int Volume { get; set; }

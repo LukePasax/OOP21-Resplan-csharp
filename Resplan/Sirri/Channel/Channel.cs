@@ -10,14 +10,32 @@ namespace Resplan.Sirri.Channel
         private const int InitialVolume = 100;
         private const int DefaultChannels = 2;
         
+        /// <summary>
+        /// 
+        /// </summary>
         public Gain GainIn { get; }
-        
-        public Gain GainOut { get; }
         
         /// <summary>
         /// 
         /// </summary>
-        public int Volume { get; set; }
+        public Gain GainOut { get; }
+
+        private int _volume = InitialVolume;
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        public int Volume
+        {
+            get => _volume;
+            set
+            {
+                if (value > 0 && value < 100)
+                {
+                    _volume = value;
+                }
+            }
+        }
         
         /// <summary>
         /// 
@@ -43,7 +61,6 @@ namespace Resplan.Sirri.Channel
             Type = type;
             Enabled = true;
             ProcessingUnit = null;
-            Volume = InitialVolume;
             GainIn = new Gain(DefaultChannels);
             GainOut = new Gain(DefaultChannels);
             GainOut.AddInput(GainIn);
@@ -68,7 +85,7 @@ namespace Resplan.Sirri.Channel
             ProcessingUnit = pu;
             ProcessingUnit.AddInput(GainIn);
             GainOut.RemoveAllInputs();
-            GainOut.AddInput(ProcessingUnit.GainOut);
+            ProcessingUnit.Connect(GainOut);
         }
 
         /// <summary>

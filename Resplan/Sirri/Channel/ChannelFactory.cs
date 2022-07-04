@@ -3,23 +3,27 @@ using Resplan.Sirri.ProcessingUnit;
 
 namespace Resplan.Sirri.Channel
 {
+    /// <summary>
+    /// A basic implementation of an <see cref="IChannelFactory"/>.
+    /// </summary>
     public class ChannelFactory : IChannelFactory
     {
         private const int DefaultChannels = 2;
         
         /// <summary>
-        /// 
+        /// <inheritdoc cref="IChannelFactory.Basic"/>
         /// </summary>
-        /// <returns></returns>
-        public IChannel Basic()
-        {
-            return new Channel(IChannel.ChannelType.Audio);
-        }
-
+        /// <returns>
+        /// <inheritdoc cref="IChannelFactory.Basic"/>
+        /// </returns>
+        public IChannel Basic() => new Channel(IChannel.ChannelType.Audio);
+        
         /// <summary>
-        /// 
+        /// <inheritdoc cref="IChannelFactory.Gated"/>
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// <inheritdoc cref="IChannelFactory.Gated"/>
+        /// </returns>
         public IChannel Gated()
         {
             var channel = new Channel(IChannel.ChannelType.Audio);
@@ -30,9 +34,11 @@ namespace Resplan.Sirri.Channel
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="IChannelFactory.Audio"/>
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// <inheritdoc cref="IChannelFactory.Audio"/>
+        /// </returns>
         public IChannel Audio()
         {
             var channel = new Channel(IChannel.ChannelType.Audio);
@@ -43,9 +49,11 @@ namespace Resplan.Sirri.Channel
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="IChannelFactory.Master"/>
         /// </summary>
-        /// <returns></returns>
+        /// <returns>
+        /// <inheritdoc cref="IChannelFactory.Master"/>
+        /// </returns>
         public IChannel Master()
         {
             var channel = new Channel(IChannel.ChannelType.Master);

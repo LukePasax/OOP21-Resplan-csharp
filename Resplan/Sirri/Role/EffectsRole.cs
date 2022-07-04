@@ -2,7 +2,7 @@
 {
     public class EffectsRole : AbstractRole
     {
-        public EffectsRole(string title, IRole.RoleType type, string? description = null) 
-            : base(title, type, description) {}
+        public EffectsRole(string title, string? description = null) 
+            : base(title, IRole.RoleType.Effects, description) {}
     }
 }

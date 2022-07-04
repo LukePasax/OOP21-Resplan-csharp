@@ -2,7 +2,7 @@
 {
     public class SoundtrackRole : AbstractRole
     {
-        public SoundtrackRole(string title, IRole.RoleType type, string? description = null)
-            : base(title, type, description) {}
+        public SoundtrackRole(string title, string? description = null) 
+            : base(title, IRole.RoleType.Soundtrack, description) {}
     }
 }

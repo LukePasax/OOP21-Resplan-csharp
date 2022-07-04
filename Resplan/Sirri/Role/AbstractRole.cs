@@ -8,10 +8,12 @@ namespace Resplan.Sirri.Role
         /// 
         /// </summary>
         public string Title { get; }
+        
         /// <summary>
         /// <inheritdoc cref="IElement.Description"/>
         /// </summary>
         public string? Description { get; set; }
+        
         /// <summary>
         /// 
         /// </summary>

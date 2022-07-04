@@ -39,7 +39,7 @@ namespace Resplan.Antonini.Clock
             Step = 0;
         }
 
-        public class Utility
+        public static class Utility
         {
             public static long TimeToClockSteps(double time) => (long)(time / Clock.ClockStepUnit);
             public static double ClockStepToTime(long clockStep) => clockStep * Clock.ClockStepUnit;

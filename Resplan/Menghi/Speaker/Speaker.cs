@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Resplan.Menghi.Project
+namespace Resplan.Menghi.Speaker
 {
     /// <summary>
     /// This is a simple implementation of an ISpeaker

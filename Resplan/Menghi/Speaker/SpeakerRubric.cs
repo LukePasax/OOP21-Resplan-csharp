@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Resplan.Menghi.Project
+namespace Resplan.Menghi.Speaker
 {
     /// <summary>
     /// This is the implementation of an ISpeakerRubric

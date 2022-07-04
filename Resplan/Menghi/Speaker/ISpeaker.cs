@@ -1,4 +1,4 @@
-﻿namespace Resplan.Menghi.Project
+﻿namespace Resplan.Menghi.Speaker
 {
     /// <summary>
     /// This interface represents a speaker who can participate in a project

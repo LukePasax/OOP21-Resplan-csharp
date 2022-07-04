@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace Resplan.Sirri.ProcessingUnit
 {
@@ -8,7 +7,7 @@ namespace Resplan.Sirri.ProcessingUnit
     /// </summary>
     public class Gain : IAudioElement
     {
-        public ISet<IAudioElement> _inputs = new HashSet<IAudioElement>();
+        private ISet<IAudioElement> _inputs = new HashSet<IAudioElement>();
 
         /// <summary>
         /// 

@@ -20,24 +20,18 @@ namespace Resplan.Sirri.ProcessingUnit
         /// 
         /// </summary>
         public IList<Effect> Effects { get; } = new List<Effect>();
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="channels"></param>
-        public ProcessingUnit(int channels)
-        {
-            GainIn = new Gain(channels);
-            GainOut = new Gain(channels);
-        }
 
         /// <summary>
         /// 
         /// </summary>
-        public ProcessingUnit()
+        public ProcessingUnit(IReadOnlyList<Effect> effects)
         {
             GainIn = new Gain();
             GainOut = new Gain();
+            for (var i = 0; i < effects.Count; i++)
+            {
+                AddEffectAtPosition(i, effects[i]);
+            }
         }
 
         /// <summary>

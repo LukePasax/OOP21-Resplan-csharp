@@ -64,10 +64,5 @@ namespace Resplan.Sirri.ProcessingUnit
         /// </summary>
         public void RemoveAllInputs() => GainIn.RemoveAllInputs();
 
-        /// <summary>
-        /// 
-        /// </summary>
-        void CalculateOutput() => Output = Name + GainIn.Output;
-
     }
 }

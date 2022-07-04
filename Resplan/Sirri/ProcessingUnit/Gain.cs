@@ -8,7 +8,7 @@ namespace Resplan.Sirri.ProcessingUnit
     /// </summary>
     public class Gain : IAudioElement
     {
-        private readonly ISet<IAudioElement> _inputs = new HashSet<IAudioElement>();
+        public ISet<IAudioElement> _inputs = new HashSet<IAudioElement>();
 
         /// <summary>
         /// 
@@ -34,16 +34,6 @@ namespace Resplan.Sirri.ProcessingUnit
         /// <summary>
         /// 
         /// </summary>
-        public string Output => _inputs.Aggregate("", (current, element) => current + element.Name);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string Name => "Gain";
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="e"></param>
         public void AddInput(IAudioElement e)
         {
@@ -61,10 +51,7 @@ namespace Resplan.Sirri.ProcessingUnit
         /// </summary>
         public void RemoveAllInputs()
         {
-            foreach (var element in _inputs)
-            {
-                RemoveInput(element);
-            }
+            _inputs = new HashSet<IAudioElement>();
         }
     }
 }

@@ -1,4 +1,3 @@
-using System.Reflection;
 using NUnit.Framework;
 using Resplan.Antonini.Utility;
 

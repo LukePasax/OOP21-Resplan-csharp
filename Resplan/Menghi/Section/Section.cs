@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Resplan.Menghi.Project
+namespace Resplan.Menghi.Section
 {
     /// <summary>
     /// It's the implementation of an ISection

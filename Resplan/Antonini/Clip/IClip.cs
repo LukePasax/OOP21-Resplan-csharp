@@ -4,13 +4,13 @@ namespace Resplan.Antonini.Clip
     {
        public const double DEFAULT_DURATION = 5000;
         
-        string Title { get; };
+        string Title { get; }
 
-        double Duration { get; set; };
+        double Duration { get; set; }
         
-        double ContentPosition { get; set; };
+        double ContentPosition { get; set; }
         
-        double ContentDuration { get; };
+        double ContentDuration { get; }
         
         bool IsEmpty();
         

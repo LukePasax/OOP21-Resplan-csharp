@@ -4,25 +4,28 @@ using System.Linq;
 
 namespace Resplan.Sirri.ProcessingUnit
 {
+    /// <summary>
+    /// This class represents a basic implementation of <see cref="IProcessingUnit"/>.
+    /// </summary>
     public class ProcessingUnit : IProcessingUnit
     {
         /// <summary>
-        /// 
+        /// <inheritdoc cref="IProcessingUnit.GainIn"/>
         /// </summary>
         public Gain GainIn { get; }
         
         /// <summary>
-        /// 
+        /// <inheritdoc cref="IProcessingUnit.GainOut"/>
         /// </summary>
         public Gain GainOut { get; }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="IProcessingUnit.Effects"/>
         /// </summary>
         public IList<AbstractEffect> Effects { get; } = new List<AbstractEffect>();
 
         /// <summary>
-        /// 
+        /// Creates a processing unit with the given list of effects.
         /// </summary>
         public ProcessingUnit(IReadOnlyList<AbstractEffect> effects)
         {
@@ -39,35 +42,49 @@ namespace Resplan.Sirri.ProcessingUnit
         }
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="IProcessingUnit.AddInput"/>
         /// </summary>
-        /// <param name="g"></param>
+        /// <param name="g">
+        /// <inheritdoc cref="IProcessingUnit.AddInput"/>
+        /// </param>
         public void AddInput(Gain g) => GetEffectAtPosition(0).AddInput(g);
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="IProcessingUnit.Connect"/>
         /// </summary>
-        /// <param name="g"></param>
+        /// <param name="g">
+        /// <inheritdoc cref="IProcessingUnit.Connect"/>
+        /// </param>
         public void Connect(Gain g) => g.AddInput(GetEffectAtPosition(Size - 1));
 
         /// <summary>
-        /// 
+        /// <inheritdoc cref="IProcessingUnit.GetEffectAtPosition"/>
         /// </summary>
-        /// <param name="index"></param>
-        /// <returns></returns>
+        /// <param name="index">
+        /// <inheritdoc cref="IProcessingUnit.GetEffectAtPosition"/>
+        /// </param>
+        /// <returns>
+        /// <inheritdoc cref="IProcessingUnit.GetEffectAtPosition"/>
+        /// </returns>
         public AbstractEffect GetEffectAtPosition(int index) => Effects.ElementAt(index);
         
         /// <summary>
-        /// 
+        /// <inheritdoc cref="IProcessingUnit.Size"/>
         /// </summary>
         public int Size => Effects.Count;
         
         /// <summary>
-        /// 
+        /// <inheritdoc cref="IProcessingUnit.AddEffectAtPosition"/>
         /// </summary>
-        /// <param name="index"></param>
-        /// <param name="abstractEffect"></param>
-        /// <exception cref="IndexOutOfRangeException"></exception>
+        /// <param name="index">
+        /// <inheritdoc cref="IProcessingUnit.AddEffectAtPosition"/>
+        /// </param>
+        /// <param name="abstractEffect">
+        /// <inheritdoc cref="IProcessingUnit.AddEffectAtPosition"/>  
+        /// </param>
+        /// <exception cref="IndexOutOfRangeException">
+        /// If the given index is out of bounds.
+        /// </exception>
         public void AddEffectAtPosition(int index, AbstractEffect abstractEffect)
         {
             if (index < 0 || index > Size)
@@ -101,11 +118,17 @@ namespace Resplan.Sirri.ProcessingUnit
         }
         
         /// <summary>
-        /// 
+        /// <inheritdoc cref="IProcessingUnit.RemoveEffectAtPosition"/>
         /// </summary>
-        /// <param name="index"></param>
-        /// <exception cref="IndexOutOfRangeException"></exception>
-        /// <exception cref="InvalidOperationException"></exception>
+        /// <param name="index">
+        /// <inheritdoc cref="IProcessingUnit.RemoveEffectAtPosition"/>
+        /// </param>
+        /// <exception cref="IndexOutOfRangeException">
+        /// If the given index is out of bounds.
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        /// If there is only one <see cref="AbstractEffect"/> stored when this method is called.
+        /// </exception>
         public void RemoveEffectAtPosition(int index)
         {
             if (index < 0 || index > Size)

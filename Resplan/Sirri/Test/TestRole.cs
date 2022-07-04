@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using Resplan.Menghi.Project;
+using Resplan.Menghi.Speaker;
 using Resplan.Sirri.Role;
 
 namespace Resplan.Sirri.Test

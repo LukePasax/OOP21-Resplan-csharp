@@ -1,4 +1,4 @@
-﻿using Resplan.Menghi.Project;
+﻿using Resplan.Menghi.Speaker;
 
 namespace Resplan.Sirri.Role
 {

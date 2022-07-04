@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Resplan.Sirri;
+using Resplan.Sirri.Channel;
 using Resplan.Sirri.Role;
 
 namespace Resplan.Pasini.Linker

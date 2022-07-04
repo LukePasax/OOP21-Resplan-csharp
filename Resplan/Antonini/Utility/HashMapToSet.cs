@@ -19,10 +19,7 @@ namespace Resplan.Antonini.Utility
             return _map.GetValueOrNone(key).ValueOrFailure().Add(value);
         }
 
-        public bool Remove(TX key, TY value)
-        {
-            return _map.ContainsKey(key) && _map.GetValueOrNone(key).ValueOrFailure().Remove(value);
-        }
+        public bool Remove(TX key, TY value) => _map.ContainsKey(key) && _map.GetValueOrNone(key).ValueOrFailure().Count.Equals(1) ? _map.Remove(key) : _map.GetValueOrNone(key).ValueOrFailure().Remove(value);
 
         public ISet<TY>? RemoveSet(TX key)
         {

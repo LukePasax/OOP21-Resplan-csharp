@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using Resplan.Menghi.Section;
 
-namespace Resplan.Menghi.Project
+namespace Resplan.Menghi.Timeline
 {
     /// <summary>
     /// This interface represents the timeline at high level

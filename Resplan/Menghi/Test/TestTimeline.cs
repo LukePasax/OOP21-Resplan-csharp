@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using Resplan.Menghi.Section;
+using Resplan.Menghi.Timeline;
 
 namespace Resplan.Menghi.Test
 {
@@ -13,7 +14,7 @@ namespace Resplan.Menghi.Test
         private readonly ISection _s3 = new Section.Section("Section3", "This is the third section", 1400.0);
         private readonly ISection _s4 = new Section.Section("Section4", "This is the fourth section", 1300.0);
 
-        private readonly ITimeline _timeline = new Timeline();
+        private readonly ITimeline _timeline = new Timeline.Timeline();
 
         [Test]
         public void TestAddition()
@@ -75,7 +76,7 @@ namespace Resplan.Menghi.Test
 
             Assert.AreEqual(6803.0, this._timeline.GetOverallDuration());
 
-            ITimeline _timeline2 = new Timeline();
+            ITimeline _timeline2 = new Timeline.Timeline();
             Assert.AreEqual(0.0, _timeline2.GetOverallDuration());
         }
     }

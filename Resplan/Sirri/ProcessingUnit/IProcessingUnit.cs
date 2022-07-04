@@ -14,17 +14,17 @@ namespace Resplan.Sirri.ProcessingUnit
         /// </summary>
         public Gain GainOut { get; }
         
-        public IList<Effect> Effects { get; }
+        public IList<AbstractEffect> Effects { get; }
         
         public void AddInput(Gain g);
 
         public void Connect(Gain g);
 
-        public Effect GetEffectAtPosition(int index);
+        public AbstractEffect GetEffectAtPosition(int index);
         
         public int Size { get; }
 
-        public void AddEffectAtPosition(int index, Effect effect);
+        public void AddEffectAtPosition(int index, AbstractEffect abstractEffect);
 
         public void RemoveEffectAtPosition(int index);
         

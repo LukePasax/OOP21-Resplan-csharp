@@ -4,7 +4,7 @@
     /// This factory allows the client to acquire a particular form of <see cref="IChannel"/>.
     /// The channels are distinguished here only by their <see cref="ProcessingUnit"/>.
     /// Still, every form of built-in channel can be later modulated by adding
-    /// <see cref="Resplan.Sirri.ProcessingUnit.Effect"/>s that serve as effects for sound processing.
+    /// <see cref="ProcessingUnit.AbstractEffect"/>s that serve as effects for sound processing.
     /// </summary>
     public interface IChannelFactory
     {

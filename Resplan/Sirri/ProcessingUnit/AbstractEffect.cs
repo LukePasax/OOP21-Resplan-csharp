@@ -2,7 +2,7 @@
 
 namespace Resplan.Sirri.ProcessingUnit
 {
-    public abstract class Effect : IAudioElement
+    public abstract class AbstractEffect : IAudioElement
     {
         /// <summary>
         /// 
@@ -18,12 +18,7 @@ namespace Resplan.Sirri.ProcessingUnit
         /// 
         /// </summary>
         public Dictionary<string, float> Parameters { get; set; } = new Dictionary<string, float>();
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public string Output { get; protected set; } = string.Empty;
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -39,7 +34,7 @@ namespace Resplan.Sirri.ProcessingUnit
         /// </summary>
         /// <param name="channels"></param>
         /// <param name="name"></param>
-        protected Effect(int channels, string name)
+        protected AbstractEffect(int channels, string name)
         {
             Channels = channels;
             GainIn = new Gain(channels);

@@ -27,7 +27,7 @@ namespace Resplan.Sirri.Channel
         public IChannel Gated()
         {
             var channel = new Channel(IChannel.ChannelType.Audio);
-            var effects = new List<Effect> { new Gate(DefaultChannels) };
+            var effects = new List<AbstractEffect> { new Gate(DefaultChannels) };
             var pu = new ProcessingUnit.ProcessingUnit(effects);
             channel.AddProcessingUnit(pu);
             return channel;
@@ -42,7 +42,7 @@ namespace Resplan.Sirri.Channel
         public IChannel Audio()
         {
             var channel = new Channel(IChannel.ChannelType.Audio);
-            var effects = new List<Effect> { new Compressor(DefaultChannels) };
+            var effects = new List<AbstractEffect> { new Compressor(DefaultChannels) };
             var pu = new ProcessingUnit.ProcessingUnit(effects);
             channel.AddProcessingUnit(pu);
             return channel;
@@ -57,7 +57,7 @@ namespace Resplan.Sirri.Channel
         public IChannel Master()
         {
             var channel = new Channel(IChannel.ChannelType.Master);
-            var effects = new List<Effect> { new Compressor(DefaultChannels), new HighPassFilter(DefaultChannels) };
+            var effects = new List<AbstractEffect> { new Compressor(DefaultChannels), new HighPassFilter(DefaultChannels) };
             var pu = new ProcessingUnit.ProcessingUnit(effects);
             channel.AddProcessingUnit(pu);
             return channel;

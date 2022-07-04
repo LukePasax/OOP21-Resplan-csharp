@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using NUnit.Framework;
 using Resplan.Sirri.ProcessingUnit;
 
@@ -16,26 +15,26 @@ namespace Resplan.Sirri.Test
         {
             try
             {
-                ProcessingUnit = new ProcessingUnit.ProcessingUnit(new List<Effect>().AsReadOnly());
+                ProcessingUnit = new ProcessingUnit.ProcessingUnit(new List<AbstractEffect>().AsReadOnly());
                 Assert.Fail();
             }
             catch (ArgumentException)
             {
-                ProcessingUnit = new ProcessingUnit.ProcessingUnit(new List<Effect> { new Compressor(2), 
+                ProcessingUnit = new ProcessingUnit.ProcessingUnit(new List<AbstractEffect> { new Compressor(2), 
                         new Gate(2) }.AsReadOnly());
                 Assert.AreEqual(2, ProcessingUnit.Size);
-                Assert.AreEqual(typeof(Compressor), ProcessingUnit.GetEffectAtPosition(0).GetType());
-                Assert.AreEqual(typeof(Gate), ProcessingUnit.GetEffectAtPosition(1).GetType());
+                Assert.AreEqual("Compressor", ProcessingUnit.GetEffectAtPosition(0).Name);
+                Assert.AreEqual("Gate", ProcessingUnit.GetEffectAtPosition(1).Name);
             }
         }
 
         [Test]
         public void TestAddition()
         {
-            ProcessingUnit = new ProcessingUnit.ProcessingUnit(new List<Effect> { new Compressor(2), 
+            ProcessingUnit = new ProcessingUnit.ProcessingUnit(new List<AbstractEffect> { new Compressor(2), 
                 new Gate(2) }.AsReadOnly());
             ProcessingUnit.AddEffectAtPosition(2, new HighPassFilter(2));
-            Assert.AreEqual(typeof(HighPassFilter), ProcessingUnit.GetEffectAtPosition(2).GetType());
+            Assert.AreEqual("High Pass", ProcessingUnit.GetEffectAtPosition(2).Name);
             try
             {
                 ProcessingUnit.AddEffectAtPosition(-1, new Compressor(1));
@@ -55,12 +54,12 @@ namespace Resplan.Sirri.Test
         [Test]
         public void TestRemoval()
         {
-            ProcessingUnit = new ProcessingUnit.ProcessingUnit(new List<Effect> { new Compressor(2), 
+            ProcessingUnit = new ProcessingUnit.ProcessingUnit(new List<AbstractEffect> { new Compressor(2), 
                 new Gate(2), new HighPassFilter(2)}.AsReadOnly());
             ProcessingUnit.RemoveEffectAtPosition(1);
             Assert.AreEqual(2, ProcessingUnit.Effects.Count);
-            Assert.AreEqual(typeof(Compressor), ProcessingUnit.GetEffectAtPosition(0).GetType());
-            Assert.AreEqual(typeof(HighPassFilter), ProcessingUnit.GetEffectAtPosition(1).GetType());
+            Assert.AreEqual("Compressor", ProcessingUnit.GetEffectAtPosition(0).Name);
+            Assert.AreEqual("High Pass", ProcessingUnit.GetEffectAtPosition(1).Name);
             try
             {
                 ProcessingUnit.RemoveEffectAtPosition(-1);

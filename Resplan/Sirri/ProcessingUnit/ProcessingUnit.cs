@@ -19,12 +19,12 @@ namespace Resplan.Sirri.ProcessingUnit
         /// <summary>
         /// 
         /// </summary>
-        public IList<Effect> Effects { get; } = new List<Effect>();
+        public IList<AbstractEffect> Effects { get; } = new List<AbstractEffect>();
 
         /// <summary>
         /// 
         /// </summary>
-        public ProcessingUnit(IReadOnlyList<Effect> effects)
+        public ProcessingUnit(IReadOnlyList<AbstractEffect> effects)
         {
             GainIn = new Gain();
             GainOut = new Gain();
@@ -55,7 +55,7 @@ namespace Resplan.Sirri.ProcessingUnit
         /// </summary>
         /// <param name="index"></param>
         /// <returns></returns>
-        public Effect GetEffectAtPosition(int index) => Effects.ElementAt(index);
+        public AbstractEffect GetEffectAtPosition(int index) => Effects.ElementAt(index);
         
         /// <summary>
         /// 
@@ -66,35 +66,35 @@ namespace Resplan.Sirri.ProcessingUnit
         /// 
         /// </summary>
         /// <param name="index"></param>
-        /// <param name="effect"></param>
+        /// <param name="abstractEffect"></param>
         /// <exception cref="IndexOutOfRangeException"></exception>
-        public void AddEffectAtPosition(int index, Effect effect)
+        public void AddEffectAtPosition(int index, AbstractEffect abstractEffect)
         {
             if (index < 0 || index > Size)
             {
                 throw new IndexOutOfRangeException("Cannot add at this position.");
             }
-            Effects.Insert(index, effect);
+            Effects.Insert(index, abstractEffect);
             if (index != 0) 
             {
-                ConnectEffects(GetEffectAtPosition(index - 1), effect);
+                ConnectEffects(GetEffectAtPosition(index - 1), abstractEffect);
             } 
             else 
             {
-                effect.GainIn.AddInput(GainIn);
+                abstractEffect.GainIn.AddInput(GainIn);
             }
             if (index != Size - 1) 
             {
-                ConnectEffects(effect, GetEffectAtPosition(index + 1));
+                ConnectEffects(abstractEffect, GetEffectAtPosition(index + 1));
             } 
             else 
             {
                 GainOut.RemoveAllInputs();
-                GainOut.AddInput(effect.GainOut);
+                GainOut.AddInput(abstractEffect.GainOut);
             }
         }
 
-        private void ConnectEffects(Effect from, Effect to)
+        private void ConnectEffects(AbstractEffect from, AbstractEffect to)
         {
             to.GainIn.RemoveAllInputs();
             to.GainIn.AddInput(from.GainOut);

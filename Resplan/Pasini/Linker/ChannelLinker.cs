@@ -78,9 +78,9 @@ namespace Resplan.Pasini.Linker
         /// <summary>
         /// <inheritdoc cref="IChannelLinker.RemoveChannel"/>
         /// </summary>
-        public void RemoveChannel(string channelTitle)
+        public void RemoveChannel(IRole role)
         {
-            _channels.Remove(GetRoleFromTitle(channelTitle));
+            _channels.Remove(role);
         }
     }
 }

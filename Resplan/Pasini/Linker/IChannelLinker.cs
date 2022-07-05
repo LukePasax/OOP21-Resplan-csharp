@@ -61,8 +61,8 @@ namespace Resplan.Pasini.Linker
         /// <summary>
         /// A method to remove a Channel from the <see cref="IChannelLinker"/>.
         /// </summary>
-        /// <param name="channelTitle"> The title of the channel </param>
-        void RemoveChannel(string channelTitle);
+        /// <param name="role"> The <see cref="IRole"/> of the channel </param>
+        void RemoveChannel(IRole role);
         
     }
 }

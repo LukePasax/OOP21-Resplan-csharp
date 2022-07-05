@@ -6,6 +6,7 @@
     /// </summary>
     public abstract class AbstractPart : IPart
     {
+
         /// <summary>
         /// <inheritdoc cref="IElement.Title"/>
         /// </summary>
@@ -32,6 +33,23 @@
             Title = title;
             Description = description;
             Type = type;
+        }
+        
+        protected bool Equals(AbstractPart other)
+        {
+            return Title == other.Title;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return obj.GetType() == GetType() && Equals((AbstractPart)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return Title.GetHashCode();
         }
     }
 }

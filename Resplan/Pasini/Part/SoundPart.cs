@@ -4,14 +4,14 @@
     /// <summary>
     /// An extension of the <see cref="AbstractPart"/> class without the Text property.
     /// </summary>
-    public class SoundAbstractPart : AbstractPart
+    public class SoundPart : AbstractPart
     {
         /// <summary>
         /// Creates a new instance of the <see cref="AbstractPart"/> class of type Sound.
         /// </summary>
         /// <param name="title"></param>
         /// <param name="description"></param>
-        public SoundAbstractPart(string title, string? description = null) 
+        public SoundPart(string title, string? description = null) 
             : base(title, IPart.PartType.Sound, description) {}
     }
 }

@@ -6,7 +6,8 @@ namespace Resplan.Pasini.Linker
     /// <summary>
     /// This interface represents a class to link a <see cref="IPart"/> to its corresponding <see cref="IClip{X}"/>.
     /// </summary>
-    public interface IClipLinker
+    /// <typeparam name="T"> The content type of the <see cref="IClip{X}"/>, must implement ...</typeparam>
+    public interface IClipLinker<T> where T : IContent
     {
         
         /// <summary>
@@ -14,23 +15,20 @@ namespace Resplan.Pasini.Linker
         /// </summary>
         /// <param name="clip"> the <see cref="IClip{X}"/> to link </param>
         /// <param name="part"> the <see cref="IPart"/> to link </param>
-        /// <typeparam name="T"> the content type of the clip </typeparam>
-        void addClipReferences<T>(IClip<T> clip, IPart part);
+        void addClipReferences(IClip<T> clip, IPart part);
         
         /// <summary>
         /// A method that returns the <see cref="IClip{X}"/> linked to the given <see cref="IPart"/>.
         /// </summary>
         /// <param name="part"> the <see cref="IPart"/> linked </param>
-        /// <typeparam name="T"> the content type of the clip </typeparam>
         /// <returns> the <see cref="IClip{X}"/> linked </returns>
-        IClip<T> getClipFromPart<T>(IPart part);
+        IClip<T> getClipFromPart(IPart part);
         
         /// <summary>
         /// </summary>
         /// <param name="clip"> the <see cref="IClip{X}"/> linked </param>
-        /// <typeparam name="T"> the content type of the clip </typeparam>
         /// <returns> the <see cref="IPart"/> </returns>
-        IPart getPartFromClip<T>(IClip<T> clip);
+        IPart getPartFromClip(IClip<T> clip);
         
         /// <summary>
         /// A method that returns the <see cref="IPart"/> with the given title.

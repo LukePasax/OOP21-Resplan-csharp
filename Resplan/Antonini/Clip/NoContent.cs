@@ -2,7 +2,7 @@ using System;
 
 namespace Resplan.Antonini.Clip
 {
-    public class NoContent
+    public class NoContent : IContent 
     {
         public override string ToString()
         {
